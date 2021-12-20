@@ -1,7 +1,7 @@
 <template>
     <headers>
             <h1 class="w-full">Belajar slots menggunakan tailwind</h1>
-            <input type="checkbox" name="dark-mode" ref="dataValue" value="dark" @click="darkMode()">
+            <input type="checkbox" @click="darkMode()" checked>
     </headers>
 </template>
 
@@ -12,17 +12,19 @@ export default {
     components:{
         headers
     },
-    data() {
-        return {
-            dark : false
-        }
-    },
+    inject:['dark'],
+    // data() {
+    //     return {
+    //         dark : false
+    //     }
+    // },
     methods: {
         darkMode(){
             // console.log(this.$refs.dataValue.value);
-            this.dark = !this.dark
+            // this.dark = !this.dark
+            console.log(this.dark);
             // console.log(this.dark);
-            this.$emit('darkMode', this.dark)
+            // this.$emit('darkMode', this.dark)
         }
     },
 }

@@ -1,8 +1,11 @@
-<template>
+<template >
     <cards>
-        <h1 class="text-gray-800 flex justify-start text-4xl dark:text-gray-300">{{ biodatas.name }}</h1>
-        <h2 class="text-gray-600 flex justify-start text-xl">{{ biodatas.prodi }}</h2>
-        <h4 class="text-gray-500 flex justify-end">{{ biodatas.kampus }}</h4>
+        <template #grid>
+                <h1 class="text-gray-800 flex justify-start text-4xl dark:text-gray-500">{{ biodatas.name }}</h1>
+                <h2 class="text-gray-600 flex justify-start text-xl">{{ biodatas.prodi }}</h2>
+                <h4 class="text-gray-500 flex justify-end">{{ biodatas.kampus }}</h4>
+        </template>
+        
     </cards>
 </template>
 

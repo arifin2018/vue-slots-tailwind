@@ -1,8 +1,19 @@
 <template>
     <headers>
-        <template v-slot:header-content>
+        <template #HeaderContent>
             <h1 class="w-full">Belajar slots menggunakan tailwind</h1>
-            <input type="checkbox" name="dark-mode" ref="dataValue" value="dark" @click="darkMode()">
+            <div class="flex w-full">
+                <div class="flex-initial mx-auto">
+                    <input type="checkbox" id="darkmode" @click="darkMode()" :checked="dark">
+                    <label for="darkmode">DarkMode</label>
+                </div>
+            </div>
+        </template>
+        <!-- default slot -->
+        <template>
+            <div class="w-screen">
+                <h3>tailwinds css</h3>
+            </div>
         </template>
     </headers>
 </template>
@@ -14,18 +25,26 @@ export default {
     components:{
         headers
     },
-    data() {
-        return {
-            dark : false
-        }
-    },
+    inject:['dark'],
     methods: {
         darkMode(){
-            // console.log(this.$refs.dataValue.value);
             this.dark = !this.dark
             // console.log(this.dark);
             this.$emit('darkMode', this.dark)
         }
+    },
+    // // mounted() {
+    // //     let getDarkModeLocalStorage = JSON.parse(localStorage.getItem('darkMode'))
+    // //     if (getDarkModeLocalStorage != null) {
+    // //     this.dark = getDarkModeLocalStorage
+    // //     }
+    // // },
+    mounted() {
+        // const getDarkModeLocalStorage = JSON.parse(localStorage.getItem('darkMode'))
+        // if (getDarkModeLocalStorage != null) {
+        //     this.dark = getDarkModeLocalStorage
+        // }
+        // console.log(this.dark, 'tes');
     },
 }
 </script>
